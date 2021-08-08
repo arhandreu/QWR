@@ -19,10 +19,10 @@ def get_shop_list_by_dishes(dishes, person_count):
     for dish in dishes:
         for ing in cook_book[dish]:
             if ing['ingredient_name'] in products:
-                products[ing['ingredient_name']]['quantity'] += ing['quantity']
+                products[ing['ingredient_name']]['quantity'] += ing['quantity']*person_count
             else:
-                products[ing['ingredient_name']] = {'measure': ing['measure'], 'quantity': ing['quantity']}
+                products[ing['ingredient_name']] = {'measure': ing['measure'], 'quantity': ing['quantity']*person_count}
     print(products)
 
 
-get_shop_list_by_dishes(['Утка по-пекински', 'Омлет'], 2)
+get_shop_list_by_dishes(['Утка по-пекински', 'Омлет'], 3)
